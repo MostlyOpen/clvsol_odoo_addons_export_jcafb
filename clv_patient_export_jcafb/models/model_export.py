@@ -177,7 +177,7 @@ class ModelExport_xls(models.Model):
         # PersonHistory = self.env['clv.person.history']
         Document = self.env['clv.document']
         LabTestResult = self.env['clv.lab_test.result']
-        LabTestReport = self.env['clv.lab_test.report']
+        # LabTestReport = self.env['clv.lab_test.report']
 
         item_count = 0
         items = False
@@ -315,23 +315,23 @@ class ModelExport_xls(models.Model):
                                 ]).result
                                 break
 
-                        if result is None or result is False:
+                        # if result is None or result is False:
 
-                            lab_test_reports = LabTestReport.search([
-                                # ('ref_id', '=', 'clv.patient,' + str(eval('item.id'))),
-                                ('ref_name', '=', item.name),
-                                ('ref_code', '=', item.code),
-                            ])
+                        #     lab_test_reports = LabTestReport.search([
+                        #         # ('ref_id', '=', 'clv.patient,' + str(eval('item.id'))),
+                        #         ('ref_name', '=', item.name),
+                        #         ('ref_code', '=', item.code),
+                        #     ])
 
-                            for lab_test_report in lab_test_reports:
+                        #     for lab_test_report in lab_test_reports:
 
-                                if lab_test_report.lab_test_type_id.id == \
-                                   lab_test_criterion.lab_test_criterion_id.lab_test_type_id.id:
-                                    result = lab_test_report.criterion_ids.search([
-                                        ('lab_test_report_id', '=', lab_test_report.id),
-                                        ('code', '=', lab_test_criterion.lab_test_criterion_id.code),
-                                    ]).result
-                                    break
+                        #         if lab_test_report.lab_test_type_id.id == \
+                        #            lab_test_criterion.lab_test_criterion_id.lab_test_type_id.id:
+                        #             result = lab_test_report.criterion_ids.search([
+                        #                 ('lab_test_report_id', '=', lab_test_report.id),
+                        #                 ('code', '=', lab_test_criterion.lab_test_criterion_id.code),
+                        #             ]).result
+                        #             break
 
                         if result is None or result is False:
 
@@ -362,23 +362,23 @@ class ModelExport_xls(models.Model):
                                     ]).result
                                     break
 
-                            if result is None or result is False:
+                            # if result is None or result is False:
 
-                                lab_test_reports = LabTestReport.search([
-                                    # ('ref_id', '=', 'clv.patient,' + str(eval('item.id'))),
-                                    ('ref_name', '=', item.name),
-                                    ('ref_code', '=', item.code),
-                                ])
+                            #     lab_test_reports = LabTestReport.search([
+                            #         # ('ref_id', '=', 'clv.patient,' + str(eval('item.id'))),
+                            #         ('ref_name', '=', item.name),
+                            #         ('ref_code', '=', item.code),
+                            #     ])
 
-                                for lab_test_report in lab_test_reports:
+                            #     for lab_test_report in lab_test_reports:
 
-                                    if lab_test_report.lab_test_type_id.id == \
-                                       lab_test_criterion.lab_test_criterion_id.lab_test_type_id.id:
-                                        result = lab_test_report.criterion_ids.search([
-                                            ('lab_test_report_id', '=', lab_test_report.id),
-                                            ('code', '=', lab_test_criterion.lab_test_criterion_id.code),
-                                        ]).result
-                                        break
+                            #         if lab_test_report.lab_test_type_id.id == \
+                            #            lab_test_criterion.lab_test_criterion_id.lab_test_type_id.id:
+                            #             result = lab_test_report.criterion_ids.search([
+                            #                 ('lab_test_report_id', '=', lab_test_report.id),
+                            #                 ('code', '=', lab_test_criterion.lab_test_criterion_id.code),
+                            #             ]).result
+                            #             break
 
                         row.write(col_nr, result)
                         col_nr += 1
@@ -470,7 +470,7 @@ class ModelExport_csv(models.Model):
         # PersonHistory = self.env['clv.person.history']
         Document = self.env['clv.document']
         LabTestResult = self.env['clv.lab_test.result']
-        LabTestReport = self.env['clv.lab_test.report']
+        # LabTestReport = self.env['clv.lab_test.report']
 
         item_count = 0
         items = False
@@ -595,21 +595,21 @@ class ModelExport_csv(models.Model):
                                 ]).result
                                 break
 
-                        lab_test_reports = LabTestReport.search([
-                            # ('ref_id', '=', 'clv.patient,' + str(eval('item.id'))),
-                            ('ref_name', '=', item.name),
-                            ('ref_code', '=', item.code),
-                        ])
+                        # lab_test_reports = LabTestReport.search([
+                        #     # ('ref_id', '=', 'clv.patient,' + str(eval('item.id'))),
+                        #     ('ref_name', '=', item.name),
+                        #     ('ref_code', '=', item.code),
+                        # ])
 
-                        for lab_test_report in lab_test_reports:
+                        # for lab_test_report in lab_test_reports:
 
-                            if lab_test_report.lab_test_type_id.id == \
-                               lab_test_criterion.lab_test_criterion_id.lab_test_type_id.id:
-                                result = lab_test_report.criterion_ids.search([
-                                    ('lab_test_report_id', '=', lab_test_report.id),
-                                    ('code', '=', lab_test_criterion.lab_test_criterion_id.code),
-                                ]).result
-                                break
+                        #     if lab_test_report.lab_test_type_id.id == \
+                        #        lab_test_criterion.lab_test_criterion_id.lab_test_type_id.id:
+                        #         result = lab_test_report.criterion_ids.search([
+                        #             ('lab_test_report_id', '=', lab_test_report.id),
+                        #             ('code', '=', lab_test_criterion.lab_test_criterion_id.code),
+                        #         ]).result
+                        #         break
 
                         row.insert(col_nr, result)
                         col_nr += 1
@@ -750,7 +750,7 @@ class ModelExport_sqlite(models.Model):
         # PersonHistory = self.env['clv.person.history']
         Document = self.env['clv.document']
         LabTestResult = self.env['clv.lab_test.result']
-        LabTestReport = self.env['clv.lab_test.report']
+        # LabTestReport = self.env['clv.lab_test.report']
 
         item_count = 0
         items = False
@@ -875,21 +875,21 @@ class ModelExport_sqlite(models.Model):
                                 ]).result
                                 break
 
-                        lab_test_reports = LabTestReport.search([
-                            # ('ref_id', '=', 'clv.patient,' + str(eval('item.id'))),
-                            ('ref_name', '=', item.name),
-                            ('ref_code', '=', item.code),
-                        ])
+                        # lab_test_reports = LabTestReport.search([
+                        #     # ('ref_id', '=', 'clv.patient,' + str(eval('item.id'))),
+                        #     ('ref_name', '=', item.name),
+                        #     ('ref_code', '=', item.code),
+                        # ])
 
-                        for lab_test_report in lab_test_reports:
+                        # for lab_test_report in lab_test_reports:
 
-                            if lab_test_report.lab_test_type_id.id == \
-                               lab_test_criterion.lab_test_criterion_id.lab_test_type_id.id:
-                                result = lab_test_report.criterion_ids.search([
-                                    ('lab_test_report_id', '=', lab_test_report.id),
-                                    ('code', '=', lab_test_criterion.lab_test_criterion_id.code),
-                                ]).result
-                                break
+                        #     if lab_test_report.lab_test_type_id.id == \
+                        #        lab_test_criterion.lab_test_criterion_id.lab_test_type_id.id:
+                        #         result = lab_test_report.criterion_ids.search([
+                        #             ('lab_test_report_id', '=', lab_test_report.id),
+                        #             ('code', '=', lab_test_criterion.lab_test_criterion_id.code),
+                        #         ]).result
+                        #         break
 
                         values += (result,)
                         col_nr += 1
