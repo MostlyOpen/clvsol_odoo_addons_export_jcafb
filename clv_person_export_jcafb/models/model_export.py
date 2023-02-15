@@ -129,7 +129,7 @@ class ModelExport_xls(models.Model):
         timestamp = datetime.now().strftime('%Y%m%d%H%M%S')[2:]
         file_name = self.export_file_name\
             .replace('<model>', model_name)\
-            .replace('_<label>', label)\
+            .replace('<label>', label)\
             .replace('<code>', code)\
             .replace('<timestamp>', timestamp)
         file_path = self.export_dir_path + '/' + file_name
